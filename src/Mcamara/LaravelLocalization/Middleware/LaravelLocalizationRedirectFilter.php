@@ -28,7 +28,7 @@ class LaravelLocalizationRedirectFilter extends LaravelLocalizationMiddlewareBas
         array_shift($params);
 
         if (\count($params) > 0) {
-            $locale = $params[0];
+            $locale = substr($params[0], 0, 2);
 
             if (app('laravellocalization')->checkLocaleInSupportedLocales($locale)) {
                 if (app('laravellocalization')->isHiddenDefault($locale)) {

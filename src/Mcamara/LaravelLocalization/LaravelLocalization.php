@@ -151,6 +151,9 @@ class LaravelLocalization
             // it tries to get it from the first segment of the url
             $locale = $this->request->segment(1);
 
+            // Strip out the {country}- part of the url segment leaving us with just the locale
+            $locale = substr($locale, 0, 2);
+
             // If the locale is determined by env, use that
             // Note that this is how per-locale route caching is performed.
             if ( ! $locale) {
